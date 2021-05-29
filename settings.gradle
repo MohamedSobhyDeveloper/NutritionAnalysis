@@ -1,0 +1,5 @@
+include ':core'
+include ':entities'
+include ':usecase'
+include ':app'
+rootProject.name = "Nutrition Analysis"
