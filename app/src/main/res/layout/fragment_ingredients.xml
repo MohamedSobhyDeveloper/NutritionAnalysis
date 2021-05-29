@@ -6,12 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".fragments.FragmentIngredients">
 
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/item_header_layout"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/tvAnalysis"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="15dp"
+                app:layout_constraintGuide_begin="10dp"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -32,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="15dp"
+                app:layout_constraintGuide_end="10dp"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
@@ -49,32 +54,83 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="Autofill" />
 
-
-            <EditText
-                android:id="@+id/edtIngredient"
+            <TextView
+                android:id="@+id/tvTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:background="@drawable/graybackground"
-                android:hint="@string/enter_ingredients_name_quantity_unit"
-                android:inputType="text"
+                android:text="@string/enter_ingredients_name_quantity_unit"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="@id/gd_end"
                 app:layout_constraintStart_toStartOf="@+id/gd_start"
                 app:layout_constraintTop_toBottomOf="@+id/edtTitle"
                 tools:ignore="Autofill" />
 
-            <ImageView
-                android:id="@+id/btnAddIngredients"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:src="@drawable/add_24_px"
-                app:layout_constraintBottom_toBottomOf="@+id/edtIngredient"
-                app:layout_constraintEnd_toEndOf="@+id/edtIngredient"
-                app:layout_constraintTop_toTopOf="@+id/edtIngredient"
-                tools:ignore="ContentDescription" />
+
+
+            <LinearLayout
+                android:id="@+id/layoutIngredients"
+                app:layout_constraintEnd_toEndOf="@id/gd_end"
+                app:layout_constraintStart_toStartOf="@+id/gd_start"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/graybackground"
+                    android:hint="@string/name"
+                    android:inputType="text"
+                    android:padding="10dp"
+
+                    tools:ignore="Autofill" />
+
+                <EditText
+                    android:id="@+id/quantity"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/graybackground"
+                    android:hint="@string/quantity"
+                    android:inputType="text"
+                    android:padding="10dp"
+
+                    tools:ignore="Autofill" />
+
+                <EditText
+                    android:id="@+id/unit"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/graybackground"
+                    android:hint="@string/unit"
+                    android:inputType="text"
+                    android:padding="10dp"
+
+                    tools:ignore="Autofill" />
+
+
+                <ImageView
+                    android:id="@+id/btnAddIngredients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/add_24_px"
+                    android:background="@drawable/graybackground"
+                    android:layout_gravity="center"
+                    tools:ignore="ContentDescription" />
+
+
+
+            </LinearLayout>
+
+
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvIngredients"
@@ -83,7 +139,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintEnd_toEndOf="@id/gd_end"
                 app:layout_constraintStart_toStartOf="@+id/gd_start"
-                app:layout_constraintTop_toBottomOf="@+id/edtIngredient" />
+                app:layout_constraintTop_toBottomOf="@+id/layoutIngredients" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
