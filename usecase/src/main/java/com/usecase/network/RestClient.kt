@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RestClient {
 
-  private const val BASE_URL = "https://api.edamam.com/api"
+  private const val BASE_URL = "https://api.edamam.com/api/"
 
   val apiService: ApiService by lazy {
     Retrofit.Builder()
@@ -32,7 +32,6 @@ object RestClient {
   }
 
   private fun headerInterceptor(): Interceptor {
-      //todo add app version dynamic token apitoken
       return Interceptor {
           val original = it.request()
               val request = original.newBuilder()
