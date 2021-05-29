@@ -19,6 +19,7 @@ class FragmentIngredients : BaseFragment<FragmentIngredientsBinding>() {
             ViewModelNutrition::class.java)
     }
 
+
     var ingredientList: ArrayList<String>?=null
 
     val adapterIngredients by lazy { AdapterIngredients() }
