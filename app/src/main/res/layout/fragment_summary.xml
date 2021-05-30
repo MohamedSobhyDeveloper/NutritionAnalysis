@@ -1,10 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentSummary">
+    tools:context=".fragments.FragmentIngredients">
+
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/item_header_layout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="Total:5000"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvCalories"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="Calories:5000"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotal"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <TextView
+        android:id="@+id/rvIngredientsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/ingredient_list"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvCalories"
+        tools:ignore="Autofill" />
 
 
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvIngredients"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintBottom_toTopOf="@+id/tvShowTotal"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/rvIngredientsLabel" />
+
+    <TextView
+        android:id="@+id/tvShowTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/border_green"
+        android:fontFamily="@font/montserratmedium"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/show_total_nutrition"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SmallSp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@ class ViewModelNutrition :ViewModel() {
     val openSummaryLivedata= MutableLiveData<Boolean>()
     val recreateLivedata= MutableLiveData<ArrayList<String>>()
     var list:ArrayList<String>?=null
+    var dataModel:ModelDetailsIngredient?=null
 
     fun apiIngredientDetails(data:ModelIngredientsRequest,appId:String,appKey:String) = loadDataGeneric{
 
@@ -38,8 +39,12 @@ class ViewModelNutrition :ViewModel() {
     }
 
 
-    fun  savedData(it1: ModelDetailsIngredient): ModelDetailsIngredient {
-         return it1
+    fun  getSavedData(): ModelDetailsIngredient {
+         return dataModel!!
+    }
+
+    fun  savedData(it1: ModelDetailsIngredient) {
+        dataModel=it1
     }
 
 

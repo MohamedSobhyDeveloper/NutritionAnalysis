@@ -14,10 +14,6 @@ import com.openpark.nutritionanalysis.MainActivity
 
 
 class FragmentIngredients : BaseFragment<FragmentIngredientsBinding>() {
-    val viewModel: ViewModelNutrition by lazy {
-        ViewModelProvider(requireActivity()).get(
-            ViewModelNutrition::class.java)
-    }
 
 
     var ingredientList: ArrayList<String>?=null
@@ -51,7 +47,7 @@ class FragmentIngredients : BaseFragment<FragmentIngredientsBinding>() {
 
                 adapterIngredients.addItem(binding.quantity.text.toString()+" "+binding.name.text.toString()+" "+binding.unit.text.toString())
                 binding.name.text.clear()
-                viewModel.updateIngredients(true)
+                (activity as MainActivity).viewModel.updateIngredients(true)
 
             }else{
                 binding.name.error="Enter name"
@@ -79,15 +75,15 @@ class FragmentIngredients : BaseFragment<FragmentIngredientsBinding>() {
 
     private fun initalize() {
 
-        viewModel.getSavedIngredients()
+        (activity as MainActivity).viewModel.getSavedIngredients()
 
-        viewModel.recreateLivedata.observe(requireActivity()){
+        (activity as MainActivity).viewModel.recreateLivedata.observe(requireActivity()){
             ingredientList=it
             adapterIngredients.clear()
             adapterIngredients.addItems(ingredientList!!)
         }
 
-        viewModel.setIngredientLivedata.observe(requireActivity()) {
+        (activity as MainActivity).viewModel.setIngredientLivedata.observe(requireActivity()) {
             updateIngredient()
         }
 
@@ -100,7 +96,7 @@ class FragmentIngredients : BaseFragment<FragmentIngredientsBinding>() {
             ingredientList!!.add(adapterIngredients.getItem(i))
         }
 
-        viewModel.saveIngredients(ingredientList!!)
+        (activity as MainActivity).viewModel.saveIngredients(ingredientList!!)
 
         if (ingredientList!!.size>0){
             binding.tvAnalysis.visibility=View.VISIBLE
@@ -117,7 +113,7 @@ class FragmentIngredients : BaseFragment<FragmentIngredientsBinding>() {
 
         adapterIngredients.setOnClickListener { clickedView, item, position ->
 
-             viewModel.updateIngredients(true)
+            (activity as MainActivity).viewModel.updateIngredients(true)
         }
     }
 

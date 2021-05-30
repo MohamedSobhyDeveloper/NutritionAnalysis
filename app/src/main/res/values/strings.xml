@@ -8,4 +8,6 @@
     <string name="name">name</string>
     <string name="quantity">quantity</string>
     <string name="unit">unit</string>
+    <string name="show_total_nutrition">Show Total Nutrition</string>
+    <string name="ingredient_list">Ingredient List</string>
 </resources>
