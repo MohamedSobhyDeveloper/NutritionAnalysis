@@ -6,6 +6,7 @@ import com.entities.ingredients.ModelIngredientsRequest
 import com.openpark.nutritionanalysis.activity.MainActivity
 import com.openpark.nutritionanalysis.R
 import com.openpark.nutritionanalysis.activity.getDetails
+import com.openpark.nutritionanalysis.activity.initializeNavController
 
 
 fun FragmentIngredients.initalizeNavController(view: View) {
@@ -21,6 +22,10 @@ fun FragmentIngredients.click() {
 
             adapterIngredients.addItem(binding.quantity.text.toString() + " " + binding.name.text.toString() + " " + binding.unit.text.toString())
             binding.name.text.clear()
+            binding.quantity.text.clear()
+            binding.unit.text.clear()
+
+
             (activity as MainActivity).viewModel.updateIngredients(true)
 
         } else {

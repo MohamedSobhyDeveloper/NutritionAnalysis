@@ -6,13 +6,11 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewbinding.ViewBinding
 import com.kt.core.databinding.ItemLoadMoreBinding
 import com.kt.core.databinding.ItemLoadMoreErrorBinding
-import com.kt.core.utlities.EndlessScrollListener
 
 import java.lang.reflect.ParameterizedType
 
@@ -30,7 +28,6 @@ abstract class BaseAdapter<VB : ViewBinding, T> : Adapter<ViewHolder>(), Filtera
   private var filteredList = mutableListOf<T?>()
   private var clickListener: ((clickedView: View, item: T, position: Int) -> Unit)? = null
   private var loadMoreListener: ((page: Int) -> Unit)? = null
-  private var scrollListener: EndlessScrollListener? = null
   private lateinit var parent: ViewGroup
   private var context: AppCompatActivity? =null
 
@@ -44,16 +41,6 @@ abstract class BaseAdapter<VB : ViewBinding, T> : Adapter<ViewHolder>(), Filtera
 
   override fun getItemCount() = mutableItems.size
 
-  override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-    super.onAttachedToRecyclerView(recyclerView)
-    scrollListener = EndlessScrollListener(recyclerView.layoutManager!!).setOnLoadMoreListener {
-      if (hasMore) loadMoreListener?.let { listener ->
-        showLoading()
-        listener.invoke(it)
-      }
-    }
-    recyclerView.addOnScrollListener(scrollListener!!)
-  }
 
   override fun getItemViewType(position: Int) = if (hasMore) {
     when (mutableItems[position]) {
@@ -115,13 +102,7 @@ abstract class BaseAdapter<VB : ViewBinding, T> : Adapter<ViewHolder>(), Filtera
     hasMore = true
   }
 
-  /**
-   * Set filtered data
-   * @param filteredList
-   */
-  fun submitFilteredList(filteredList: MutableList<T?>) {
-    this.filteredList = filteredList
-  }
+
 
   /**
    * Get items
@@ -134,16 +115,7 @@ abstract class BaseAdapter<VB : ViewBinding, T> : Adapter<ViewHolder>(), Filtera
    */
   fun getItem(position: Int) = mutableItems[position]!!
 
-  /**
-   * Replace current items with new items
-   * @param items New items to fill
-   */
-  fun fill(items: List<T>) {
-    this.items = items
-    mutableItems.clear()
-    mutableItems.addAll(items)
-    notifyDataSetChanged()
-  }
+
 
   /**
    * Add items to end of list
@@ -222,17 +194,8 @@ abstract class BaseAdapter<VB : ViewBinding, T> : Adapter<ViewHolder>(), Filtera
     }
   }
 
-  /**
-   * Notify that no more items
-   */
-  fun setLoaded() {
-    hasMore = false
-    scrollListener?.setLoaded()
-  }
 
-  /**
-   * Show error
-   */
+
   fun showError() {
     dismissLoading()
     isError = true
@@ -252,15 +215,7 @@ abstract class BaseAdapter<VB : ViewBinding, T> : Adapter<ViewHolder>(), Filtera
     }
   }
 
-  /**
-   * Get current page
-   */
-  fun getPage() = scrollListener?.getPage() ?: 1
 
-  /**
-   * Reset page to 1
-   */
-  fun resetPage() = scrollListener?.resetPage()
   fun setContext(context:AppCompatActivity){
     this.context=context
   }
@@ -307,7 +262,6 @@ abstract class BaseAdapter<VB : ViewBinding, T> : Adapter<ViewHolder>(), Filtera
       if (isError) binding.llError.setOnClickListener {
         dismissError()
         showLoading()
-        loadMoreListener?.invoke(scrollListener!!.getPage())
       }
     }
   }

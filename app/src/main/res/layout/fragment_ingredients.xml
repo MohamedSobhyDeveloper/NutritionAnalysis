@@ -97,9 +97,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/graybackground"
                     android:hint="@string/quantity"
-                    android:inputType="text"
+                    android:inputType="numberDecimal"
                     android:padding="10dp"
-
                     tools:ignore="Autofill" />
 
                 <EditText

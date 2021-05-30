@@ -6,7 +6,6 @@ data class Resource<out T>(
     val message: String? = null,
     val validation_message: String? = null,
     val data: T? = null,
-    val pagination: BaseRsm.Pagination? = null,
       val      exception: Exception?=null
 ) {
 
@@ -17,9 +16,8 @@ data class Resource<out T>(
         fun <T> success(
             data: T?,
             message: String = "",
-            pagination: BaseRsm.Pagination? = null
         ): Resource<T> =
-            Resource(status = SUCCESS, data = data, message = message, pagination = pagination)
+            Resource(status = SUCCESS, data = data, message = message)
 
         fun failure(msg: String): Resource<Nothing> = Resource(status = ERROR, message = msg)
         fun unauthorized(msg: String): Resource<Nothing> = Resource(status = LogIn, message = msg)

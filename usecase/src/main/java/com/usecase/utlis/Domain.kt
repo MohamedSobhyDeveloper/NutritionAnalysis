@@ -1,4 +1,4 @@
-package com.kt.usecase
+package com.usecase.utlis
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
