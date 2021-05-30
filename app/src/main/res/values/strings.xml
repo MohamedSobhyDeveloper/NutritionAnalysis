@@ -10,4 +10,10 @@
     <string name="unit">unit</string>
     <string name="show_total_nutrition">Show Total Nutrition</string>
     <string name="ingredient_list">Ingredient List</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_quantity">Enter quantity</string>
+    <string name="app_id">9235320e</string>
+    <string name="app_key">56054c3147c9bc4fbcfea4d05846eed3</string>
+    <string name="total_weight">\"Total Weight:- \"</string>
+    <string name="calories">\"Calories :- \"</string>
 </resources>

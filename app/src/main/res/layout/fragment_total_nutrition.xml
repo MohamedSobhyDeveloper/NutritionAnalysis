@@ -1,14 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentTotalNutrition">
+    tools:context=".fragments.FragmentIngredients">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/item_header_layout"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tvCalories"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Calories:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout"
+        tools:ignore="Autofill,HardcodedText" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvFat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Fat:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvCalories"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvCholesterol"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Cholesterol:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvFat"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvSodium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Sodium:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvCholesterol"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvCarbohydrate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Carbohydrate:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvSodium"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvProtein"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Protein:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvCarbohydrate"
+        tools:ignore="Autofill,HardcodedText" />
+
+
+    <TextView
+        android:id="@+id/tvVitamin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Vitamin:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvProtein"
+        tools:ignore="Autofill,HardcodedText" />
+
+
+    <TextView
+        android:id="@+id/tvCalcium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Calcium:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvVitamin"
+        tools:ignore="Autofill,HardcodedText" />
+
+
+    <TextView
+        android:id="@+id/tvIron"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Iron:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvCalcium"
+        tools:ignore="Autofill,HardcodedText" />
+
+
+    <TextView
+        android:id="@+id/tvPotassium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="10dp"
+        android:text="Potassium:5000"
+        app:layout_constraintEnd_toEndOf="@id/gd_end"
+        app:layout_constraintStart_toStartOf="@+id/gd_start"
+        app:layout_constraintTop_toBottomOf="@+id/tvIron"
+        tools:ignore="Autofill,HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

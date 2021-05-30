@@ -11,7 +11,6 @@ import com.usecase.network.loadDataGeneric
 
 class ViewModelNutrition :ViewModel() {
     val setIngredientLivedata= MutableLiveData<Boolean>()
-    val openSummaryLivedata= MutableLiveData<Boolean>()
     val recreateLivedata= MutableLiveData<ArrayList<String>>()
     var list:ArrayList<String>?=null
     var dataModel:ModelDetailsIngredient?=null
@@ -48,10 +47,5 @@ class ViewModelNutrition :ViewModel() {
     }
 
 
-
-
-    fun  openSummary(update:Boolean){
-        openSummaryLivedata.value=update
-    }
 
 }

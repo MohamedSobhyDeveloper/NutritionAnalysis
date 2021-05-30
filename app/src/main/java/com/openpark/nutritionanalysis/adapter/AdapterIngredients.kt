@@ -8,12 +8,12 @@ class AdapterIngredients : BaseAdapter<RvIngredientsItemBinding, String>() {
 
 
         binding.btnclear.setOnClickListener {
-             removeItem(position)
-             onViewClicked(binding.root, item, position)
+            removeItem(position)
+            onViewClicked(binding.root, item, position)
 
         }
 
-        binding.tvTitle.text=item
+        binding.tvTitle.text = item
 
     }
 }
