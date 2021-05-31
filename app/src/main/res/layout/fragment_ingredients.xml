@@ -59,30 +59,29 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:text="@string/enter_ingredients_name_quantity_unit"
                 android:padding="10dp"
+                android:text="@string/enter_ingredients_name_quantity_unit"
                 app:layout_constraintEnd_toEndOf="@id/gd_end"
                 app:layout_constraintStart_toStartOf="@+id/gd_start"
                 app:layout_constraintTop_toBottomOf="@+id/edtTitle"
                 tools:ignore="Autofill" />
 
 
-
             <LinearLayout
                 android:id="@+id/layoutIngredients"
-                app:layout_constraintEnd_toEndOf="@id/gd_end"
-                app:layout_constraintStart_toStartOf="@+id/gd_start"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                app:layout_constraintEnd_toEndOf="@id/gd_end"
+                app:layout_constraintStart_toStartOf="@+id/gd_start"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
                 <EditText
                     android:id="@+id/name"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@drawable/graybackground"
                     android:hint="@string/name"
                     android:inputType="text"
@@ -93,8 +92,8 @@
                 <EditText
                     android:id="@+id/quantity"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@drawable/graybackground"
                     android:hint="@string/quantity"
                     android:inputType="numberDecimal"
@@ -104,8 +103,8 @@
                 <EditText
                     android:id="@+id/unit"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@drawable/graybackground"
                     android:hint="@string/unit"
                     android:inputType="text"
@@ -118,17 +117,14 @@
                     android:id="@+id/btnAddIngredients"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/graybackground"
                     android:padding="10dp"
                     android:src="@drawable/add_24_px"
-                    android:background="@drawable/graybackground"
-                    android:layout_gravity="center"
                     tools:ignore="ContentDescription" />
 
 
-
             </LinearLayout>
-
-
 
 
             <androidx.recyclerview.widget.RecyclerView

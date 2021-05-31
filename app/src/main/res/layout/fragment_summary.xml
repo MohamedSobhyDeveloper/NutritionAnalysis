@@ -32,8 +32,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8sdp"
-        android:text="Total:5000"
         android:padding="10dp"
+        android:text="Total:5000"
         app:layout_constraintEnd_toEndOf="@id/gd_end"
         app:layout_constraintStart_toStartOf="@+id/gd_start"
         app:layout_constraintTop_toBottomOf="@+id/headerLayout"
@@ -44,8 +44,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8sdp"
-        android:text="Calories:5000"
         android:padding="10dp"
+        android:text="Calories:5000"
         app:layout_constraintEnd_toEndOf="@id/gd_end"
         app:layout_constraintStart_toStartOf="@+id/gd_start"
         app:layout_constraintTop_toBottomOf="@+id/tvTotal"
@@ -56,13 +56,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8sdp"
-        android:text="@string/ingredient_list"
         android:padding="10dp"
+        android:text="@string/ingredient_list"
         app:layout_constraintEnd_toEndOf="@id/gd_end"
         app:layout_constraintStart_toStartOf="@+id/gd_start"
         app:layout_constraintTop_toBottomOf="@+id/tvCalories"
         tools:ignore="Autofill" />
-
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -94,7 +93,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SmallSp" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

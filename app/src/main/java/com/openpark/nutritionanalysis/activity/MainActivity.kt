@@ -12,7 +12,7 @@ import com.openpark.nutritionanalysis.viewmodel.ViewModelNutrition
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     val viewModel by viewModels<ViewModelNutrition>()
-    var dataModel:ModelDetailsIngredient?=null
+    var dataModel: ModelDetailsIngredient? = null
     lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +20,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     }
 
-
-
-  
 
 }
